@@ -198,3 +198,53 @@ var Perro = /** @class */ (function (_super) {
 var perro = new Perro("Firulai");
 perro.mover();
 perro.ladrar();
+/**
+ * Para hacer esto, deberás crear una clase llamada "Empleado" con las siguientes propiedades:
+ *  "nombre", "edad", "salario" y "departamento". Luego, deberás crear una subclase llamada
+ * "Gerente" que herede de la clase "Empleado" y tenga una propiedad adicional llamada "equipo"
+ *  (un arreglo de objetos "Empleado"). Agrega un método llamado "calcularSalarioTotal" que calcule
+ * el salario total del gerente y su equipo a partir de los salarios de cada empleado, y un método llamado
+ *  "agregarEmpleado" que permita agregar un nuevo empleado al equipo del gerente.
+ */
+var Empleado = /** @class */ (function () {
+    //declaro el constructor
+    function Empleado(nombre, edad, salario, departamento) {
+        this.nombre = nombre,
+            this.edad = edad,
+            this.salario = salario,
+            this.departamento = departamento;
+    }
+    //declaro los métodos
+    Empleado.prototype.calcularSalario = function () {
+        return this.salario;
+    };
+    return Empleado;
+}());
+//Genero la clase gerente
+var Gerente = /** @class */ (function (_super) {
+    __extends(Gerente, _super);
+    function Gerente(nombre, edad, salario, departamento, empleados) {
+        var _this = _super.call(this, nombre, edad, salario, departamento) || this;
+        _this.empleados = empleados;
+        return _this;
+    }
+    //genero los métodos
+    Gerente.prototype.calcularSalarioTotal = function () {
+        var salarioTotal = _super.prototype.calcularSalario.call(this);
+        console.log(salarioTotal);
+        for (var _i = 0, _a = this.empleados; _i < _a.length; _i++) {
+            var empleado = _a[_i];
+            salarioTotal += empleado.calcularSalario();
+        }
+        return salarioTotal;
+    };
+    Gerente.prototype.agregarEmpleado = function (empleado) {
+        this.empleados.push(empleado);
+    };
+    return Gerente;
+}(Empleado));
+var empleado1 = new Empleado("Juan", 30, 3000, "Venta");
+var empleado2 = new Empleado("Pedro", 42, 3500, "Venta");
+var empleado3 = new Empleado("Andres", 22, 31, "Venta");
+var gerente = new Gerente("Pepe", 45, 8000, "Venta", [empleado1, empleado2]);
+console.log(gerente.calcularSalarioTotal());
