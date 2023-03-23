@@ -105,3 +105,14 @@ class Prestamo extends Libro2{
 const prestamo = new Prestamo('Como hacerse millonario', 'Kiyosaki','pepe',200,new Date() );
 // new Date(2023,3,22)
 console.log(prestamo.calcularMulta())
+
+
+
+/**
+ * Se requiere desarrollar una aplicación que permita gestionar la información de una empresa de envíos. 
+ * Para ello, se deberá crear una clase llamada "Envio" con las siguientes propiedades: "id", "destinatario", 
+ * "direccion", "fechaEnvio" y "fechaEntrega". Luego, se deberá crear una subclase llamada "Paquete" que herede de la clase "Envio" 
+ * y tenga una propiedad adicional llamada "peso". Agrega un método llamado "calcularCostoEnvio" que calcule el costo de envío de
+ *  un paquete en base al peso, y un método llamado "enviarPaquete" que permita enviar un paquete a su destinatario. Finalmente, 
+ * deberás crear un objeto a partir de la clase "Paquete" y mostrar en consola el costo de envío del paquete.
+ */
